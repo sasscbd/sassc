@@ -51,7 +51,7 @@ function eze_batch_fees_create_shortcode() {
 
             // Fetch payment receivable data
             $payment_query = "
-                SELECT *
+              
                 FROM $payment_receivable_table
                 WHERE session = %s AND std_acc_id = %d
             ";
