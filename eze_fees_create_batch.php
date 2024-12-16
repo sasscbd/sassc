@@ -51,25 +51,9 @@ function eze_batch_fees_create_shortcode() {
 
             // Fetch payment receivable data
             $payment_query = "
-              
+			SELECT * 
                 FROM $payment_receivable_table
-                WHERE session = %s AND std_acc_id = %d
-            ";
-            $payment_receivable_data = $wpdb->get_results($wpdb->prepare($payment_query, $session, $std_acc_id));
-        } else {
-            $student_name = 'Student not found.';
-        }
-    }
-
-    ob_start();
-    ?>
-    <div class="eze-fees-container">
-		<!-- Left-side table -->
-		<div class="eze-fees-left" style="background-color: #f4f6f7; border-radius: 8px; padding: 15px;">
-			<h3 style="color: #3498db; font-size: 22px;">Fee Structure</h3>
-			<div>
-				<label for="session_start_date" style="font-weight: bold;">Session Start Date:</label>
-				<input type="text" id="session_start_date" name="session_start_date" class="eze-session-date" value="<?php echo esc_attr($session_start_date); ?>" placeholder="DD/MM/YYYY" style="background-color: white;" />
+                WHERE session = %s AND std_acc_id = %dv
 			</div>
 			<br>
 			<form method="POST">
